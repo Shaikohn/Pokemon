@@ -1,5 +1,5 @@
 const express = require('express')
-const { getPokemons, getPokemonByName } = require('../controllers/pokemonesControllers')
+const { getPokemons, getPokemonByName } = require('../controllers/pokemonsControllers')
 
 const router = express.Router()
 
