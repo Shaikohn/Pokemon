@@ -1,0 +1,12 @@
+.navContainer {
+    background-color: red;
+    color: white;
+    display: flex;
+    gap: 5px;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.links {
+    color: white;
+}
