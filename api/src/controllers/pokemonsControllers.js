@@ -47,8 +47,8 @@ const getPokemonByName = async(req, res) => {
             name: pokemon.data.name,
             image,
             types,
-            weight: `${pokemon.data.weight / 10} kilograms `,
-            height: `${pokemon.data.height / 10} meters `,
+            weight: pokemon.data.weight / 10,
+            height: pokemon.data.height / 10,
             abilities,
         }
         res.status(200).json(pokemonInfo)

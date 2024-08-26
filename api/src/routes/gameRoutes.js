@@ -4,6 +4,6 @@ const { getPokemonsForHigherOrLower, getPokemonsForWhoIsThatPokemon } = require(
 const router = express.Router()
 
 router.get("/higherOrLower", getPokemonsForHigherOrLower)
-router.get("/:whoIsThatPokemon", getPokemonsForWhoIsThatPokemon)
+router.get("/whoIsThatPokemon", getPokemonsForWhoIsThatPokemon)
 
 module.exports = router 
