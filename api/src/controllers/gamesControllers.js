@@ -3,7 +3,7 @@ const { API_URL } = process.env
 
 const getPokemonsForWhoIsThatPokemon = async(req, res) => {
     try {
-        let pokemons = await(axios.get(`${API_URL}/pokemon/?limit=1302`))
+        let pokemons = await(axios.get(`${API_URL}/pokemon/?limit=100`))
         
         let pokemonsData = pokemons.data.results
         let pokemonFilteredData = []
@@ -31,7 +31,7 @@ const getPokemonsForWhoIsThatPokemon = async(req, res) => {
 
 const getPokemonsForHigherOrLower = async(req, res) => {
     try {
-        let pokemons = await(axios.get(`${API_URL}/pokemon/?limit=1302`))
+        let pokemons = await(axios.get(`${API_URL}/pokemon/?limit=50`))
         
         let pokemonsData = pokemons.data.results
         let pokemonFilteredData = []
@@ -41,8 +41,8 @@ const getPokemonsForHigherOrLower = async(req, res) => {
             pokemonsData[i] = {
                 name: pokemonsData[i].name,
                 image: pokemonSprite,
-                weight: `${pokemonsData[i].weight / 10} kilograms `,
-                height: `${pokemonsData[i].height / 10} meters `,
+                weight: pokemonsData[i].weight / 10,
+                height: pokemonsData[i].height / 10,
                 id: pokemonsData[i].id,
             }
             pokemonFilteredData.push(pokemonsData[i])
