@@ -1,10 +1,10 @@
 import axios from "axios";
-import { gethigherOrLowerPokemons, getWhoIsThatPokemonPokemons } from "../slices/gameSlice";
+import { getHigherOrLowerPokemons, getWhoIsThatPokemonPokemons } from "../slices/gameSlice";
 
 export const getHigherOrLower = () => async(dispatch) => {
     try {
         const { data } = await axios.get('/games/higherOrLower')
-        dispatch(gethigherOrLowerPokemons(data))
+        dispatch(getHigherOrLowerPokemons(data))
     }
     catch(e) {
         console.log(e)
@@ -14,6 +14,7 @@ export const getHigherOrLower = () => async(dispatch) => {
 export const getWhoIsThatPokemon = () => async(dispatch) => {
     try {
         const { data } = await axios.get('/games/whoIsThatPokemon')
+        console.log(data)
         dispatch(getWhoIsThatPokemonPokemons(data))
     }
     catch(e) {

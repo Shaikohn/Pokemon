@@ -1,9 +1,88 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { getHigherOrLower } from '../../redux/actions/gameActions';
 
 const HigherOrLower = () => {
+
+  const { higherOrLowerPokemons } = useSelector(state => state.games)
+  const [one, setOne] = useState('')
+  const [two, setTwo] = useState('')
+  const [hidden, setHidden] = useState(true)
+  const [status, setStatus] = useState(null)
+  const [points, setPoints] = useState(0)
+  const [index, setIndex] = useState(1)
+	const dispatch = useDispatch()
+
+  if(one === '' && two === '' && higherOrLowerPokemons.length > 0) {
+    setOne(higherOrLowerPokemons[0])
+    setTwo(higherOrLowerPokemons[1])
+  }
+
+	useEffect(() => {
+		dispatch(getHigherOrLower())
+	}, [dispatch])
+
+  const onClickHigher = () => {
+    setHidden(false)
+    if(two.id > one.id) {
+      setStatus('correct')
+      setPoints(points + 1)
+    } else {
+      setStatus('incorrect')
+    }
+  }
+
+  const onClickLower = () => {
+    setHidden(false)
+    if(two.id < one.id) {
+      setStatus('correct')
+      setPoints(points + 1)
+    } else {
+      setStatus('incorrect')
+    }
+  }
+
+  const onClickContinue = () => {
+    setIndex(index + 1)
+    setOne(two)
+    setTwo(higherOrLowerPokemons[index])
+    setHidden(true)
+    setStatus(null)
+  }
+
+  const onClickTryAgain = () => {
+    dispatch(getHigherOrLower())
+    setOne(higherOrLowerPokemons[0])
+    setTwo(higherOrLowerPokemons[1])
+    setHidden(true)
+    setPoints(0)
+    setStatus(null)
+  }
+
   return (
     <div>
-        <h1>Higher Or Lower</h1>
+      <h1>Higher Or Lower</h1>
+      <h2>Pokedex Number</h2>
+      <div>
+        <h1> {one.name} </h1>
+        <img src={one.image} />
+        <p> {one.id} </p>
+      </div>
+      <div>
+        <h1> {two.name} </h1>
+        <img src={two.image} />
+        { hidden ?
+        <p> ? </p> : <p> {two.id} </p>
+        }
+        {
+          status === null ?
+          <div>
+            <button onClick={onClickHigher}>HIGHER</button>
+            <button onClick={onClickLower}>LOWER</button>
+          </div> : status === 'correct' ?
+          <button onClick={onClickContinue}>Continue</button> : <button onClick={onClickTryAgain}>Try again</button>
+        }
+      </div>
     </div>
   )
 }

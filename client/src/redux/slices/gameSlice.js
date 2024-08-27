@@ -4,17 +4,17 @@ export const gameSlice = createSlice({
     name: "games",
     initialState: {
         higherOrLowerPokemons: [],
-        WhoIsThatPokemonPokemons: {},
+        whoIsThatPokemonPokemons: [],
     },
     reducers: {
-        gethigherOrLowerPokemons: (state, action) => {
+        getHigherOrLowerPokemons: (state, action) => {
             state.higherOrLowerPokemons = action.payload
         },
         getWhoIsThatPokemonPokemons: (state, action) => {
-            state.WhoIsThatPokemonPokemons = action.payload
+            state.whoIsThatPokemonPokemons = action.payload
         },
     }
 })
 
-export const { gethigherOrLowerPokemons, getWhoIsThatPokemonPokemons } = gameSlice.actions
+export const { getHigherOrLowerPokemons, getWhoIsThatPokemonPokemons } = gameSlice.actions
 export default gameSlice.reducer

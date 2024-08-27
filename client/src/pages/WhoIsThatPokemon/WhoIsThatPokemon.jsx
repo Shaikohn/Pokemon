@@ -11,11 +11,9 @@ const WhoIsThatPokemon = () => {
 		dispatch(getWhoIsThatPokemon())
 	}, [dispatch])
 
-  console.log(whoIsThatPokemonPokemons)
-
   return (
     <div>
-        <h1>Who Is That Pokemon?</h1>
+      <h1>Who Is That Pokemon?</h1>
     </div>
   )
 }
