@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getHigherOrLower } from '../../redux/actions/gameActions';
+import './HigherOrLower.css'
 
 const HigherOrLower = () => {
 
@@ -60,28 +61,34 @@ const HigherOrLower = () => {
   }
 
   return (
-    <div>
+    <div className='higherOrLowerContainer'>
       <h1>Higher Or Lower</h1>
       <h2>Pokedex Number</h2>
-      <div>
-        <h1> {one.name} </h1>
-        <img src={one.image} />
-        <p> {one.id} </p>
-      </div>
-      <div>
-        <h1> {two.name} </h1>
-        <img src={two.image} />
-        { hidden ?
-        <p> ? </p> : <p> {two.id} </p>
-        }
-        {
+      <div className='optionsContainer'>
+        <div className='optionContainer'>
+          <h1> {one.name} </h1>
+          <img className='optionImage' src={one.image} />
+          <p> {one.id} </p>
+        </div>
+        <div className='optionContainer'>
+          <h1> {two.name} </h1>
+          <img className='optionImage' src={two.image} />
+          { hidden ?
+            <p> ? </p> : <p> {two.id} </p>
+          }
+          {
           status === null ?
           <div>
-            <button onClick={onClickHigher}>HIGHER</button>
-            <button onClick={onClickLower}>LOWER</button>
+            <button className='higherButton' onClick={onClickHigher}>HIGHER</button>
+            <button className='lowerButton' onClick={onClickLower}>LOWER</button>
           </div> : status === 'correct' ?
-          <button onClick={onClickContinue}>Continue</button> : <button onClick={onClickTryAgain}>Try again</button>
+          <button className='continueButton' onClick={onClickContinue}>CONTINUE</button> :
+          <div>
+            <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
+            <p>Your points: {points} </p>
+          </div>
         }
+        </div>
       </div>
     </div>
   )

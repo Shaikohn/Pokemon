@@ -1,0 +1,56 @@
+.higherOrLowerContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+    width: 700px;
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.optionContainer {
+    background-color: #be0000;
+    border: solid 5px rgb(255, 114, 114);
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    width: 400px;
+}
+
+.optionImage {
+    height: 200px;
+    width: 200px;
+}
+
+.higherButton {
+    background-color: green;
+    border: solid 4px white;
+    color: white;
+    margin: 5px;
+}
+
+.lowerButton {
+    background-color: red;
+    border: solid 4px white;
+    color: white;
+    margin: 5px;
+}
+
+.continueButton {
+    background-color: greenyellow;
+    border: solid 4px white;
+    color: white;
+    margin: 5px;
+}
+
+.tryAgainButton {
+    background-color: yellow;
+    border: solid 4px white;
+    color: white;
+    margin: 5px;
+}
