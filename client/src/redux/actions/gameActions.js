@@ -14,7 +14,6 @@ export const getHigherOrLower = () => async(dispatch) => {
 export const getWhoIsThatPokemon = () => async(dispatch) => {
     try {
         const { data } = await axios.get('/games/whoIsThatPokemon')
-        console.log(data)
         dispatch(getWhoIsThatPokemonPokemons(data))
     }
     catch(e) {

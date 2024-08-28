@@ -1,0 +1,23 @@
+.whoIsThatPokemonContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+    width: 700px;
+}
+
+.pokemonHidden {
+    height: 250px;
+    width: 250px;
+}
+
+.correctName {
+    color: green;
+    font-size: 30px;
+}
+
+.incorrectName {
+    color: red;
+    font-size: 30px;
+}
