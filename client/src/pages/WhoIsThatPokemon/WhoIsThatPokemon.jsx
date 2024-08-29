@@ -11,6 +11,7 @@ const WhoIsThatPokemon = () => {
   const [status, setStatus] = useState(null)
   const [points, setPoints] = useState(0)
   const [input, setInput] = useState('')
+  const [difficulty, setDifficulty] = useState('easy')
 	const dispatch = useDispatch()
 
   if(whoIsThatPokemonPokemons.length > 0 && pokemon === null) {
@@ -26,7 +27,7 @@ const WhoIsThatPokemon = () => {
   }
 
   const onClickSubmit = () => {
-    if(pokemon.name === input) {
+    if(pokemon.name === input.toLowerCase()) {
       setStatus('correct')
       setPoints(points + 1)
     } else {
@@ -45,18 +46,45 @@ const WhoIsThatPokemon = () => {
     setPokemon(whoIsThatPokemonPokemons[0])
     setPoints(0)
     setStatus(null)
+    setDifficulty('')
+  }
+
+  const onClickSetEasy = () => {
+    setDifficulty('easy')
+    setStatus('ingame')
+  }
+
+  const onClickSetMedium = () => {
+    setDifficulty('medium')
+    setStatus('ingame')
+  }
+
+  const onClickSetHard = () => {
+    setDifficulty('hard')
+    setStatus('ingame')
   }
 
   return (
     <div className='whoIsThatPokemonContainer'>
       <h1>Who Is That Pokemon?</h1>
-      <img className='pokemonHidden' src={pokemon?.image} />
+      {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
-        status === null ?
-        <div className='inputContainer'>
-          <input onChange={handleInput} type='text' />
+        status === null ? 
+        <div>
+          <h2>DIFFICULTY</h2>
+          <button className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
           <br />
-          <button onClick={onClickSubmit}>SUBMIT</button>
+          <button className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
+          <br />
+          <button className='difficultyButton' onClick={onClickSetHard}>HARD</button>
+        </div>
+        : status === 'ingame' ?
+        <div className='inputContainer'>
+          {difficulty === 'easy' ? `It has ${pokemon?.name?.length} letters and starts with ${pokemon?.name[0]}${pokemon?.name[1]}` : difficulty === 'medium' ? `It has ${pokemon?.name?.length} letters` :  ``}
+          <br />
+          <input className='inputName' onChange={handleInput} type='text' />
+          <br />
+          <button className='submitButton' onClick={onClickSubmit}>SUBMIT</button>
         </div> : status === 'correct' ?
         <div>
           <p className='correctName'> {pokemon.name} </p>

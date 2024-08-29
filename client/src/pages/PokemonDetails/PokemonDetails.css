@@ -1,0 +1,25 @@
+.detailsContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+    width: 500px;
+}
+
+.infoContainer {
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+}
+
+.pokeImage {
+    height: 200px;
+    width: 200px;
+}
+
+.pokeName {
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+}

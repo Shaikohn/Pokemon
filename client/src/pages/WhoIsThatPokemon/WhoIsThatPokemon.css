@@ -21,3 +21,22 @@
     color: red;
     font-size: 30px;
 }
+
+.inputName {
+    border: solid 2px rgb(56, 56, 56);
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.submitButton {
+    background-color: orange;
+    color: white;
+}
+
+.difficultyButton {
+    background-color: red;
+    color: white;
+    margin: 20px;
+}

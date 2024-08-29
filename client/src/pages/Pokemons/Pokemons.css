@@ -1,0 +1,35 @@
+.pokemonsContainer {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    justify-content: space-around;
+    margin: 0 auto; 
+    text-align: center;
+    width: 1200px;
+}
+
+.pokemonContainer {
+    margin: 40px;
+}
+
+.pokemonImage {
+    height: 100px;
+    width: 100px;
+}
+
+.pokeballImage {
+    height: 400px;
+    animation: rotation 0.5s linear infinite;
+    width: 400px;
+    margin-top: 5%;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(358deg);
+    }
+}

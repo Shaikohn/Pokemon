@@ -56,7 +56,7 @@ const getPokemonByName = async(req, res) => {
     const { name } = req.params
     try {
         let pokemon = await Pokemon.find({name: { $in: name }}) 
-        res.status(200).json(pokemon)
+        res.status(200).json(pokemon[0])
     } catch(e) {
         res.status(500).json({msg: String(e)})
     }

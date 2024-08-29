@@ -17,9 +17,12 @@
     border: solid 5px rgb(255, 114, 114);
     border-radius: 20px;
     color: white;
-    font-size: 20px;
     margin: 10px;
     width: 400px;
+}
+
+.optionContainer p {
+    font-size: 30px;
 }
 
 .optionImage {
@@ -45,12 +48,21 @@
     background-color: greenyellow;
     border: solid 4px white;
     color: white;
+    font-size: 30px;
     margin: 5px;
 }
 
 .tryAgainButton {
-    background-color: yellow;
+    background-color: orange;
     border: solid 4px white;
     color: white;
     margin: 5px;
+}
+
+.correctAnswer {
+    color: green;
+}
+
+.incorrectAnswer {
+    color: red;
 }

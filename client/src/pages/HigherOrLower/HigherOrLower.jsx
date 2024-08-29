@@ -74,7 +74,7 @@ const HigherOrLower = () => {
           <h1> {two.name} </h1>
           <img className='optionImage' src={two.image} />
           { hidden ?
-            <p> ? </p> : <p> {two.id} </p>
+            <p> ? </p> : <p className={status === 'correct' ? 'correctAnswer' : 'incorrectAnswer'}> {two.id} </p>
           }
           {
           status === null ?
