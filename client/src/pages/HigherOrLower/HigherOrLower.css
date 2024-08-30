@@ -4,7 +4,7 @@
     justify-content: center;
     margin: 0 auto; 
     text-align: center;
-    width: 700px;
+    width: 800px;
 }
 
 .optionsContainer {
@@ -23,10 +23,12 @@
 
 .optionContainer p {
     font-size: 30px;
+    margin-top: -20px;
 }
 
 .optionImage {
     height: 200px;
+    margin-top: -40px;
     width: 200px;
 }
 
@@ -48,7 +50,7 @@
     background-color: greenyellow;
     border: solid 4px white;
     color: white;
-    font-size: 30px;
+    /* font-size: 30px; */
     margin: 5px;
 }
 

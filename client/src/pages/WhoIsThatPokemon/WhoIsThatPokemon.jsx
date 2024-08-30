@@ -72,11 +72,11 @@ const WhoIsThatPokemon = () => {
         status === null ? 
         <div>
           <h2>DIFFICULTY</h2>
-          <button className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
+          <button style={{backgroundColor: 'green'}} className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
           <br />
-          <button className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
+          <button style={{backgroundColor: 'orange'}} className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
           <br />
-          <button className='difficultyButton' onClick={onClickSetHard}>HARD</button>
+          <button style={{backgroundColor: 'red'}} className='difficultyButton' onClick={onClickSetHard}>HARD</button>
         </div>
         : status === 'ingame' ?
         <div className='inputContainer'>

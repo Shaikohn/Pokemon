@@ -62,8 +62,8 @@ const HigherOrLower = () => {
 
   return (
     <div className='higherOrLowerContainer'>
-      <h1>Higher Or Lower</h1>
-      <h2>Pokedex Number</h2>
+      <h1>Higher Or Lower: Pokedex Number</h1>
+      {/* <h2>Pokedex Number</h2> */}
       <div className='optionsContainer'>
         <div className='optionContainer'>
           <h1> {one.name} </h1>
@@ -85,7 +85,7 @@ const HigherOrLower = () => {
           <button className='continueButton' onClick={onClickContinue}>CONTINUE</button> :
           <div>
             <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
-            <p>Your points: {points} </p>
+            <p style={{marginTop: '10px'}}>Your points: {points} </p>
           </div>
         }
         </div>
