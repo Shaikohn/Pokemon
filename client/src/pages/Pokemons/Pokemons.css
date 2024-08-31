@@ -27,10 +27,9 @@
 }
 
 .pokeballImage {
-    height: 400px;
+    height: 300px;
     animation: rotation 0.5s linear infinite;
-    width: 400px;
-    margin-top: 5%;
+    width: 300px;
 }
 
 @keyframes rotation {

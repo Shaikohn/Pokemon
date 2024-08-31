@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getHigherOrLower } from '../../redux/actions/gameActions';
+import pokeball from '../../assets/Pokeball.png'
 import './HigherOrLower.css'
 
 const HigherOrLower = () => {
@@ -62,9 +63,11 @@ const HigherOrLower = () => {
 
   return (
     <div className='higherOrLowerContainer'>
-      <h1>Higher Or Lower: Pokedex Number</h1>
+      <h1><span style={{color: 'green'}}>Higher</span> Or <span style={{color: 'red'}}>Lower</span>: Pokedex Number</h1>
       {/* <h2>Pokedex Number</h2> */}
-      <div className='optionsContainer'>
+      {
+        one !== '' ?
+        <div className='optionsContainer'>
         <div className='optionContainer'>
           <h1> {one.name} </h1>
           <img className='optionImage' src={one.image} />
@@ -90,6 +93,8 @@ const HigherOrLower = () => {
         }
         </div>
       </div>
+        : <img className='pokeballImage' src={pokeball} />
+      }
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getWhoIsThatPokemon } from '../../redux/actions/gameActions';
 import './WhoIsThatPokemon.css'
+import WhoIsThatPokemonImage from '../../assets/WhoIsThatPokemon.png'
 
 const WhoIsThatPokemon = () => {
 
@@ -38,7 +39,7 @@ const WhoIsThatPokemon = () => {
   const onClickContinue = () => {
     setIndex(index + 1)
     setPokemon(whoIsThatPokemonPokemons[index])
-    setStatus(null)
+    setStatus('ingame')
   }
 
   const onClickTryAgain = () => {
@@ -66,12 +67,11 @@ const WhoIsThatPokemon = () => {
 
   return (
     <div className='whoIsThatPokemonContainer'>
-      <h1>Who Is That Pokemon?</h1>
       {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
         status === null ? 
         <div>
-          <h2>DIFFICULTY</h2>
+          <h1 style={{color: 'red'}}>DIFFICULTY</h1>
           <button style={{backgroundColor: 'green'}} className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
           <br />
           <button style={{backgroundColor: 'orange'}} className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
@@ -80,7 +80,7 @@ const WhoIsThatPokemon = () => {
         </div>
         : status === 'ingame' ?
         <div className='inputContainer'>
-          {difficulty === 'easy' ? `It has ${pokemon?.name?.length} letters and starts with ${pokemon?.name[0]}${pokemon?.name[1]}` : difficulty === 'medium' ? `It has ${pokemon?.name?.length} letters` :  ``}
+          {difficulty === 'easy' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters</p> :  ``}
           <br />
           <input className='inputName' onChange={handleInput} type='text' />
           <br />
@@ -88,13 +88,15 @@ const WhoIsThatPokemon = () => {
         </div> : status === 'correct' ?
         <div>
           <p className='correctName'> {pokemon.name} </p>
-          <button onClick={onClickContinue}>CONTINUE</button>
+          <button className='continueButton' onClick={onClickContinue}>CONTINUE</button>
         </div> :
         <div>
           <p className='incorrectName'> {pokemon.name} </p>
-          <button onClick={onClickTryAgain}>TRY AGAIN</button>
+          <p style={{fontSize: '20px'}}> Your points: {points} </p>
+          <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
         </div>
       }
+      <img className='logoImage' src={WhoIsThatPokemonImage} />
     </div>
   )
 }

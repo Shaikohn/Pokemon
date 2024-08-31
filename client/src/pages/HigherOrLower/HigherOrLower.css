@@ -68,3 +68,18 @@
 .incorrectAnswer {
     color: red;
 }
+
+.pokeballImage {
+    animation: rotation 0.5s linear infinite;
+    height: 300px;
+    width: 300px;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(358deg);
+    }
+}

@@ -1,10 +1,18 @@
 .whoIsThatPokemonContainer {
     align-items: center;
-    height: 300px;
+    display: flex;
     justify-content: center;
     margin: 0 auto; 
     text-align: center;
     width: 700px;
+}
+
+.logoImage {
+    height: 400px;
+    /* margin: auto; */
+    margin-left: 200px;
+    margin-top: 50px;
+    width: 400px;
 }
 
 .pokemonHidden {
@@ -38,4 +46,19 @@
 .difficultyButton {
     color: white;
     margin: 20px;
+}
+
+.continueButton {
+    background-color: greenyellow;
+    border: solid 4px white;
+    color: white;
+    /* font-size: 30px; */
+    margin: 5px;
+}
+
+.tryAgainButton {
+    background-color: orange;
+    border: solid 4px white;
+    color: white;
+    margin: 5px;
 }

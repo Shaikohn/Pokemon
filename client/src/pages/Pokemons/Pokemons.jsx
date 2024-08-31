@@ -11,11 +11,26 @@ const Pokemons = () => {
     const { allPokemons } = useSelector(state => state.pokemons)
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
+    const [page, setPage] = useState(1)
+    const [perPage, setPerPage] = useState(20)
     let filteredPokemons = allPokemons.filter(p => p.name.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
 		dispatch(getPokemons())
 	}, [dispatch])
+
+    const handleScroll = () => {
+        if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+            /* setPage(page + 1) */
+            setPerPage(perPage + 20)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll)
+
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [document.documentElement.scrollTop])
 
     const filterPokemons = () => {
         if(search.length === 0) {
@@ -40,13 +55,15 @@ const Pokemons = () => {
     return (
         <div>
             <div className='container'>
-                <h1>POKEMONS</h1>
+                <h1 style={{color: 'red'}}>POKEMONS</h1>
                 <input className='searchInput' onChange={handleOnSearch} placeholder="Search Pokemons" type="text" value={search} />
             </div>
             <div className='pokemonsContainer'>
             {
                 allPokemons.length > 0 ?
-                filterPokemons().map((p, i) => {
+                filterPokemons()
+                .slice(0, perPage)
+                .map((p, i) => {
                     return (
                         <Link to={`pokemon/${p.name}`} key={i}>
                         <div className='pokemonContainer'>
