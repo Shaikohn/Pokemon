@@ -63,3 +63,23 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.mobile-only {
+  display: none;
+}
+
+.pc-only {
+  display: none;
+}
+  
+@media (max-width: 900px) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+@media (min-width: 901px) {
+  .pc-only {
+    display: block;
+  }
+}

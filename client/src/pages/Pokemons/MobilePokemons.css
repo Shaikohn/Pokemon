@@ -1,0 +1,26 @@
+.mobileContainer {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+
+.mobilePokemonsContainer {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    justify-content: space-around;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.mobilePokemonImage {
+    height: 150px;
+    width: 150px;
+}
+
+.mobilePokemonContainer {
+    margin: 80px;
+}

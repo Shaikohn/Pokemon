@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemons } from '../../redux/actions/pokemonActions';
-import './Pokemons.css'
 import pokeball from '../../assets/Pokeball.png'
 import { Link } from 'react-router-dom'
 import Swal from "sweetalert2";
-import MobilePokemons from './MobilePokemons';
+import './MobilePokemons.css'
 
-const Pokemons = () => {
+const MobilePokemons = () => {
 
-    const { allPokemons } = useSelector(state => state.pokemons)
+  const { allPokemons } = useSelector(state => state.pokemons)
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
     const [page, setPage] = useState(1)
@@ -53,15 +52,14 @@ const Pokemons = () => {
         setSearch(e.target.value)
     }
 
-    return (
-        <div className='mobile-only'>
-            <MobilePokemons />
-        <div className='pc-only'>
-            <div className='container'>
+
+  return (
+    <div>
+            <div className='mobileContainer'>
                 <h1 style={{color: 'red'}}>POKEMONS</h1>
                 <input className='searchInput' onChange={handleOnSearch} placeholder="Search Pokemons" type="text" value={search} />
             </div>
-            <div className='pokemonsContainer'>
+            <div className='mobilePokemonsContainer'>
             {
                 allPokemons.length > 0 ?
                 filterPokemons()
@@ -69,8 +67,8 @@ const Pokemons = () => {
                 .map((p, i) => {
                     return (
                         <Link to={`pokemon/${p.name}`} key={i}>
-                        <div className='pokemonContainer'>
-                            <img className='pokemonImage' src={p.image} />
+                        <div className='mobilePokemonContainer'>
+                            <img className='mobilePokemonImage' src={p.image} />
                             <p style={{color: 'black'}}> {p.name} </p>
                         </div>
                         </Link>
@@ -79,8 +77,7 @@ const Pokemons = () => {
             }
             </div>
         </div>
-        </div>
-    )
+  )
 }
 
-export default Pokemons
+export default MobilePokemons

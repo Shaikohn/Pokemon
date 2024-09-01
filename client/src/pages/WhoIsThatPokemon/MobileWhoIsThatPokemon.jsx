@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getWhoIsThatPokemon } from '../../redux/actions/gameActions';
-import './WhoIsThatPokemon.css'
 import WhoIsThatPokemonImage from '../../assets/WhoIsThatPokemon.png'
-import MobileWhoIsThatPokemon from './MobileWhoIsThatPokemon'
+import './MobileWhoIsThatPokemon.css'
 
-const WhoIsThatPokemon = () => {
+const MobileWhoIsThatPokemon = () => {
 
   const { whoIsThatPokemonPokemons } = useSelector(state => state.games)
   const [pokemon, setPokemon] = useState(null)
@@ -67,27 +66,26 @@ const WhoIsThatPokemon = () => {
   }
 
   return (
-    <div>
-      <MobileWhoIsThatPokemon />
-    <div className='whoIsThatPokemonContainer pc-only'>
+    <div className='mobileWhoIsThatPokemonContainer'>
+      <img className='mobileLogoImage' src={WhoIsThatPokemonImage} />
       {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
         status === null ? 
         <div>
           <h1 style={{color: 'red'}}>DIFFICULTY</h1>
-          <button style={{backgroundColor: 'green'}} className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
+          <button style={{backgroundColor: 'green'}} className='mobileDifficultyButton' onClick={onClickSetEasy}>EASY</button>
           <br />
-          <button style={{backgroundColor: 'orange'}} className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
+          <button style={{backgroundColor: 'orange'}} className='mobileDifficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
           <br />
-          <button style={{backgroundColor: 'red'}} className='difficultyButton' onClick={onClickSetHard}>HARD</button>
+          <button style={{backgroundColor: 'red'}} className='mobileDifficultyButton' onClick={onClickSetHard}>HARD</button>
         </div>
         : status === 'ingame' ?
         <div className='inputContainer'>
-          {difficulty === 'easy' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters</p> :  ``}
+          {difficulty === 'easy' ? <p style={{color: 'red', fontSize: '25px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p style={{color: 'red', fontSize: '25px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters</p> :  ``}
           <br />
-          <input className='inputName' onChange={handleInput} type='text' />
+          <input className='mobileInputName' onChange={handleInput} type='text' />
           <br />
-          <button className='submitButton' onClick={onClickSubmit}>SUBMIT</button>
+          <button className='mobileSubmitButton' onClick={onClickSubmit}>SUBMIT</button>
         </div> : status === 'correct' ?
         <div>
           <p className='correctName'> {pokemon.name} </p>
@@ -99,10 +97,8 @@ const WhoIsThatPokemon = () => {
           <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
         </div>
       }
-      <img className='logoImage' src={WhoIsThatPokemonImage} />
-    </div>
     </div>
   )
 }
 
-export default WhoIsThatPokemon
+export default MobileWhoIsThatPokemon

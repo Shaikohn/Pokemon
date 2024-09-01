@@ -1,0 +1,34 @@
+.mobileWhoIsThatPokemonContainer {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.mobileLogoImage {
+    height: 200px;
+    margin-top: 50px;
+    width: 200px;
+}
+
+.mobileInputName {
+    border: solid 2px rgb(56, 56, 56);
+    border-radius: 10px;
+    font-size: 30px;
+    margin: 10px;
+    text-align: center;
+}
+
+.mobileSubmitButton {
+    background-color: orange;
+    color: white;
+    font-size: 30px;
+    /* height: 100px;
+    width: 100px; */
+}
+
+.mobileDifficultyButton {
+    color: white;
+    font-size: 30px;
+    margin: 20px;
+}
