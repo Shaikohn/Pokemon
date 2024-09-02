@@ -7,16 +7,27 @@
     width: 700px;
 }
 
+.whoIsThatPokemon-pc {
+    display: none;
+}
+
+@media (min-width: 901px) {
+    .whoIsThatPokemon-pc {
+      display: flex;
+    }
+  }
+
 .logoImage {
     height: 400px;
     /* margin: auto; */
-    margin-left: 200px;
+    margin-left: 150px;
     margin-top: 50px;
     width: 400px;
 }
 
 .pokemonHidden {
     height: 250px;
+    margin-bottom: -30px;
     width: 250px;
 }
 

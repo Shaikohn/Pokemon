@@ -68,8 +68,11 @@ const WhoIsThatPokemon = () => {
 
   return (
     <div>
-      <MobileWhoIsThatPokemon />
-    <div className='whoIsThatPokemonContainer pc-only'>
+      <div className='mobile-only'>
+        <MobileWhoIsThatPokemon />
+      </div>
+    <div className='whoIsThatPokemonContainer whoIsThatPokemon-pc'>
+      <div style={{display: 'block'}}>
       {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
         status === null ? 
@@ -99,6 +102,7 @@ const WhoIsThatPokemon = () => {
           <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
         </div>
       }
+      </div>
       <img className='logoImage' src={WhoIsThatPokemonImage} />
     </div>
     </div>

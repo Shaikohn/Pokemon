@@ -1,0 +1,54 @@
+.mobileHigherOrLowerContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.mobileOptionContainer {
+    background-color: #be0000;
+    border: solid 5px rgb(255, 114, 114);
+    border-radius: 20px;
+    color: white;
+    margin: 0 auto; 
+    margin-top: 10px;
+    width: 320px;
+}
+
+.mobileOptionsContainer {
+    display: block;
+    justify-content: space-around;
+}
+
+.mobileHigherButton {
+    background-color: green;
+    border: solid 4px white;
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.mobileLowerButton {
+    background-color: red;
+    border: solid 4px white;
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.mobileContinueButton {
+    background-color: greenyellow;
+    border: solid 4px white;
+    color: white;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.mobileTryAgainButton {
+    background-color: orange;
+    border: solid 4px white;
+    color: white;
+    font-size: 30px;
+    margin: 5px;
+}

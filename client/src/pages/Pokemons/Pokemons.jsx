@@ -54,8 +54,10 @@ const Pokemons = () => {
     }
 
     return (
-        <div className='mobile-only'>
+        <div>
+            <div className='mobile-only'>
             <MobilePokemons />
+            </div>
         <div className='pc-only'>
             <div className='container'>
                 <h1 style={{color: 'red'}}>POKEMONS</h1>
