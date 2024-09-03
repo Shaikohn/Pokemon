@@ -1,0 +1,15 @@
+.mobileDetailsContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+    width: 300px;
+}
+
+.mobilePokeName {
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    font-size: 3.0em;
+}

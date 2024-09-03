@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
 import { getDetails } from '../../redux/actions/pokemonActions';
 import './PokemonDetails.css'
+import MobilePokemonDetails from './MobilePokemonDetails'
 
 const PokemonDetails = () => {
 
@@ -17,30 +18,35 @@ const PokemonDetails = () => {
     }, [dispatch, name])
 
     return (
-        <div className='detailsContainer'>
-            <h1 className='pokeName'> {pokemonDetails.name} </h1>
-            <div className='infoContainer'>
-            <img className='pokeImage' src={pokemonDetails.image} />
-            <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                <div>
-                    <p> HEIGHT </p>
-                    <p> {pokemonDetails.height} meters </p>
-                </div>
-                <div>
-                    <p> WEIGHT </p>
-                    <p> {pokemonDetails.weight} kilograms </p>
-                </div>
+        <div>
+            <div className='mobile-only'>
+                <MobilePokemonDetails />
             </div>
-            <p>TYPES</p>
-            <div style={{display:'flex', justifyContent: 'space-around'}}>
-            {
-                pokemonDetails.types?.map((t, i) => {
-                    return(
-                        <p key={i}> {t} </p>
-                    )
-                })
-            }
-            </div>
+            <div className='detailsContainer pc-only'>
+                <h1 className='pokeName'> {pokemonDetails.name} </h1>
+                <div className='infoContainer'>
+                    <img className='pokeImage' src={pokemonDetails.image} />
+                    <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                        <div>
+                            <p> HEIGHT </p>
+                            <p> {pokemonDetails.height} meters </p>
+                        </div>
+                        <div>
+                            <p> WEIGHT </p>
+                            <p> {pokemonDetails.weight} kilograms </p>
+                        </div>
+                    </div>
+                    <p>TYPES</p>
+                    <div style={{display:'flex', justifyContent: 'space-around'}}>
+                    {
+                    pokemonDetails.types?.map((t, i) => {
+                        return(
+                            <p key={i}> {t} </p>
+                        )
+                        })
+                    }    
+                    </div>
+                </div>
             </div>
         </div>
     )

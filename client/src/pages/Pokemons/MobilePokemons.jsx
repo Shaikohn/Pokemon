@@ -69,7 +69,7 @@ const MobilePokemons = () => {
                         <Link to={`pokemon/${p.name}`} key={i}>
                         <div className='mobilePokemonContainer'>
                             <img className='mobilePokemonImage' src={p.image} />
-                            <p style={{color: 'black'}}> {p.name} </p>
+                            <p style={{color: 'black', fontSize: '25px'}}> {p.name} </p>
                         </div>
                         </Link>
                     )
