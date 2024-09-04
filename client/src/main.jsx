@@ -7,7 +7,7 @@ import axios from "axios"
 import App from './App.jsx'
 import './index.css'
 
-axios.defaults.baseURL = "http://localhost:3001"
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>

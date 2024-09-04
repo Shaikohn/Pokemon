@@ -81,7 +81,7 @@ const MobileWhoIsThatPokemon = () => {
         </div>
         : status === 'ingame' ?
         <div className='inputContainer'>
-          {difficulty === 'easy' ? <p style={{color: 'red', fontSize: '25px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p style={{color: 'red', fontSize: '25px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters</p> :  ``}
+          {difficulty === 'easy' ? <p className='mobileClue'>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p className='mobileClue'>It has {pokemon?.name?.length} letters</p> :  ``}
           <br />
           <input className='mobileInputName' onChange={handleInput} type='text' />
           <br />

@@ -3,7 +3,6 @@
     justify-content: center;
     margin: 0 auto; 
     text-align: center;
-    width: 400px;
 }
 
 .mobileLogoImage {
@@ -15,7 +14,7 @@
 .mobileInputName {
     border: solid 2px rgb(56, 56, 56);
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 25px;
     margin: 10px;
     text-align: center;
 }
@@ -32,4 +31,10 @@
     color: white;
     font-size: 30px;
     margin: 20px;
+}
+
+.mobileClue {
+    color: red;
+    font-size: 25px;
+    margin-bottom: -20px;
 }
