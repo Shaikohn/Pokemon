@@ -1,0 +1,19 @@
+.mobileHomeContainer {
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    margin: 0 auto; 
+    text-align: center;
+    width: 350px;
+}
+
+.mobileDescription {
+    font-size: 25px;
+    margin-top: -20px;
+}
+
+.mobileTitlesContainer {
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+}
