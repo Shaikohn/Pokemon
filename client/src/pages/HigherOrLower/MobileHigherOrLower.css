@@ -52,3 +52,18 @@
     font-size: 30px;
     margin: 5px;
 }
+
+.mobileHigherOrLowerPokeball {
+    height: 250px;
+    animation: rotation 0.5s linear infinite;
+    width: 250px;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(358deg);
+    }
+}

@@ -13,8 +13,11 @@ export const pokemonSlice = createSlice({
         getPokemonDetails: (state, action) => {
             state.pokemonDetails = action.payload
         },
+        clearPokemonDetails: (state) => {
+            state.pokemonDetails = {}
+        },
     }
 })
 
-export const { getAllPokemons, getPokemonDetails } = pokemonSlice.actions
+export const { getAllPokemons, getPokemonDetails, clearPokemonDetails } = pokemonSlice.actions
 export default pokemonSlice.reducer

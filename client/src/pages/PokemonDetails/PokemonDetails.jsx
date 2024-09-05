@@ -3,8 +3,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
 import { getDetails } from '../../redux/actions/pokemonActions';
+import { clearPokemonDetails } from '../../redux/slices/pokemonSlice';
 import './PokemonDetails.css'
 import MobilePokemonDetails from './MobilePokemonDetails'
+import pokeball from '../../assets/Pokeball.png'
 
 const PokemonDetails = () => {
 
@@ -14,6 +16,7 @@ const PokemonDetails = () => {
     const {pokemonDetails} = useSelector((state) => state.pokemons) 
 
     useEffect(() => {
+        dispatch(clearPokemonDetails())
         dispatch(getDetails(name))
     }, [dispatch, name])
 
@@ -23,7 +26,10 @@ const PokemonDetails = () => {
                 <MobilePokemonDetails />
             </div>
             <div className='detailsContainer pc-only'>
-                <h1 className='pokeName'> {pokemonDetails.name} </h1>
+                {
+                    Object.keys(pokemonDetails).length > 0 ?
+                    <div>
+                        <h1 className='pokeName'> {pokemonDetails.name} </h1>
                 <div className='infoContainer'>
                     <img className='pokeImage' src={pokemonDetails.image} />
                     <div style={{display: 'flex', justifyContent: 'space-around'}}>
@@ -47,6 +53,8 @@ const PokemonDetails = () => {
                     }    
                     </div>
                 </div>
+                    </div> : <img className='detailsPokeballImage' src={pokeball} />
+                }
             </div>
         </div>
     )

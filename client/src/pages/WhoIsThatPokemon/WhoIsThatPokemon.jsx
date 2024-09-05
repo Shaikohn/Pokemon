@@ -4,6 +4,7 @@ import { getWhoIsThatPokemon } from '../../redux/actions/gameActions';
 import './WhoIsThatPokemon.css'
 import WhoIsThatPokemonImage from '../../assets/WhoIsThatPokemon.png'
 import MobileWhoIsThatPokemon from './MobileWhoIsThatPokemon'
+import pokeball from '../../assets/Pokeball.png'
 
 const WhoIsThatPokemon = () => {
 
@@ -72,7 +73,9 @@ const WhoIsThatPokemon = () => {
         <MobileWhoIsThatPokemon />
       </div>
     <div className='whoIsThatPokemonContainer whoIsThatPokemon-pc'>
-      <div style={{display: 'block'}}>
+      {
+        whoIsThatPokemonPokemons.length > 0 ?
+        <div style={{display: 'block'}}>
       {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
         status === null ? 
@@ -102,7 +105,8 @@ const WhoIsThatPokemon = () => {
           <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
         </div>
       }
-      </div>
+      </div> : <img className='pokeballImage' src={pokeball} />
+      }
       <img className='logoImage' src={WhoIsThatPokemonImage} />
     </div>
     </div>

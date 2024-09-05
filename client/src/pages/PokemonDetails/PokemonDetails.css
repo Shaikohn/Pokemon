@@ -23,3 +23,19 @@
     border-radius: 20px;
     color: white;
 }
+
+.detailsPokeballImage {
+    height: 300px;
+    animation: rotation 0.5s linear infinite;
+    margin-top: 100px;
+    width: 300px;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(358deg);
+    }
+}

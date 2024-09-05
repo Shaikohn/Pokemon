@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getWhoIsThatPokemon } from '../../redux/actions/gameActions';
 import WhoIsThatPokemonImage from '../../assets/WhoIsThatPokemon.png'
 import './MobileWhoIsThatPokemon.css'
+import pokeball from '../../assets/Pokeball.png'
 
 const MobileWhoIsThatPokemon = () => {
 
@@ -68,8 +69,11 @@ const MobileWhoIsThatPokemon = () => {
   return (
     <div className='mobileWhoIsThatPokemonContainer'>
       <img className='mobileLogoImage' src={WhoIsThatPokemonImage} />
-      {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
       {
+        whoIsThatPokemonPokemons.length > 0 ?
+        <div>
+        {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
+        {
         status === null ? 
         <div>
           <h1 style={{color: 'red'}}>DIFFICULTY</h1>
@@ -96,6 +100,8 @@ const MobileWhoIsThatPokemon = () => {
           <p style={{fontSize: '20px'}}> Your points: {points} </p>
           <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
         </div>
+      }
+        </div> : <img className='mobileWhoIsThatPokemonPokeball' src={pokeball} />
       }
     </div>
   )

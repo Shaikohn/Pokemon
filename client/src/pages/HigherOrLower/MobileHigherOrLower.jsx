@@ -93,7 +93,7 @@ const MobileHigherOrLower = () => {
         }
         </div>
       </div>
-        : <img className='pokeballImage' src={pokeball} />
+        : <img className='mobileHigherOrLowerPokeball' src={pokeball} />
       }
     </div>
   )

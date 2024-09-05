@@ -13,3 +13,23 @@
     color: white;
     font-size: 3.0em;
 }
+
+.mobileInfoText {
+    font-size: 20px;
+}
+
+.mobileDetailsPokeballImage {
+    height: 250px;
+    animation: rotation 0.5s linear infinite;
+    margin-top: 100px;
+    width: 250px;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(358deg);
+    }
+}

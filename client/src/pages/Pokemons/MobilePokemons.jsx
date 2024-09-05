@@ -73,7 +73,7 @@ const MobilePokemons = () => {
                         </div>
                         </Link>
                     )
-                }) : <img className='pokeballImage' src={pokeball} />
+                }) : <img className='mobilePokemonsPokeball' src={pokeball} />
             }
             </div>
         </div>
