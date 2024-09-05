@@ -18,7 +18,7 @@ const MobileNavbar = () => {
                 !isOpen ?
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <Link to='/' style={{color: 'white'}}><h2 style={{textAlign: 'center'}}>POKESHAI</h2></Link>
-                    <button className="mobileNavButtons" type="button" onClick={toggleMenu}>
+                    <button style={{cursor: 'none'}} className="mobileNavButtons" type="button" onClick={toggleMenu}>
                         <RxHamburgerMenu color="white" size={40} />
                     </button>
                 </div>
