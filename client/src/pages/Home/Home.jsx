@@ -1,34 +1,31 @@
 import { Link } from 'react-router-dom'
-import './Home.css'
-import MobileHome from './MobileHome'
 
 const Home = () => {
   return (
-    <div>
-      <div className='mobile-only'>
-        <MobileHome />
-      </div>
-      <div className='homeContainer pc-only'>
-        <h1 style={{color: 'red'}}>POKESHAI</h1>
-        <Link to='/pokemons'>
-          <div className='titlesContainer'>
-            <h1>POKEMONS</h1>
-            <p className='description'>Here you can search all the pokemons!</p>
-          </div>
-        </Link>
-        <Link to='/whoIsThatPokemon'>
-          <div className='titlesContainer'>
-            <h1>WHO IS THAT POKEMON?</h1>
-            <p className='description'>Here you can play the famous game of the anime!</p>
-          </div>
-        </Link>
-        <Link to='/higherOrLower'>
-          <div className='titlesContainer'>
-            <h1>HIGHER OR LOWER?</h1>
-            <p className='description'>Here you can play Higher Or Lower adapted to Pokemon!</p>
-          </div>
-        </Link>
-      </div>
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4 py-10">
+        <h1 className="text-4xl sm:text-5xl font-bold text-red-500 mb-10 tracking-wide text-center">
+            POKESHAI
+        </h1>
+        <div className="space-y-6 w-full max-w-xl">
+            <Link to="/pokemons" className="block bg-gray-800 hover:bg-gray-700 transition rounded-lg p-4 sm:p-6 shadow-md">
+                <h2 className="text-xl sm:text-2xl font-semibold mb-1">POKEMONS</h2>
+                <p className="text-sm sm:text-base text-gray-300">
+                    Browse and search through all available Pokémon!
+                </p>
+            </Link>
+            <Link to="/whoIsThatPokemon" className="block bg-gray-800 hover:bg-gray-700 transition rounded-lg p-4 sm:p-6 shadow-md">
+                <h2 className="text-xl sm:text-2xl font-semibold mb-1">WHO IS THAT POKEMON?</h2>
+                <p className="text-sm sm:text-base text-gray-300">
+                    Play the iconic silhouette guessing game from the anime!
+                </p>
+            </Link>
+            <Link to="/higherOrLower" className="block bg-gray-800 hover:bg-gray-700 transition rounded-lg p-4 sm:p-6 shadow-md">
+                <h2 className="text-xl sm:text-2xl font-semibold mb-1">HIGHER OR LOWER?</h2>
+                <p className="text-sm sm:text-base text-gray-300">
+                    A Pokémon-themed twist on the classic Higher or Lower game!
+                </p>
+            </Link>
+        </div>
     </div>
   )
 }
