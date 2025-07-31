@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getWhoIsThatPokemon } from '../../redux/actions/gameActions';
-import './WhoIsThatPokemon.css'
 import WhoIsThatPokemonImage from '../../assets/WhoIsThatPokemon.png'
-import MobileWhoIsThatPokemon from './MobileWhoIsThatPokemon'
 import pokeball from '../../assets/Pokeball.png'
 
 const WhoIsThatPokemon = () => {
@@ -68,47 +66,96 @@ const WhoIsThatPokemon = () => {
   }
 
   return (
-    <div>
-      <div className='mobile-only'>
-        <MobileWhoIsThatPokemon />
-      </div>
-    <div className='whoIsThatPokemonContainer whoIsThatPokemon-pc'>
-      {
-        whoIsThatPokemonPokemons.length > 0 ?
-        <div style={{display: 'block'}}>
-      {status !== null ? <img className='pokemonHidden' src={pokemon?.image} /> : ''}
-      {
-        status === null ? 
-        <div>
-          <h1 style={{color: 'red'}}>DIFFICULTY</h1>
-          <button style={{backgroundColor: 'green'}} className='difficultyButton' onClick={onClickSetEasy}>EASY</button>
-          <br />
-          <button style={{backgroundColor: 'orange'}} className='difficultyButton' onClick={onClickSetMedium}>MEDIUM</button>
-          <br />
-          <button style={{backgroundColor: 'red'}} className='difficultyButton' onClick={onClickSetHard}>HARD</button>
-        </div>
-        : status === 'ingame' ?
-        <div className='inputContainer'>
-          {difficulty === 'easy' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters and starts with {pokemon?.name[0]}{pokemon?.name[1]}</p> : difficulty === 'medium' ? <p style={{color: 'red', fontSize: '20px', marginBottom: '-20px'}}>It has {pokemon?.name?.length} letters</p> :  ``}
-          <br />
-          <input className='inputName' onChange={handleInput} type='text' />
-          <br />
-          <button className='submitButton' onClick={onClickSubmit}>SUBMIT</button>
-        </div> : status === 'correct' ?
-        <div>
-          <p className='correctName'> {pokemon.name} </p>
-          <button className='continueButton' onClick={onClickContinue}>CONTINUE</button>
-        </div> :
-        <div>
-          <p className='incorrectName'> {pokemon.name} </p>
-          <p style={{fontSize: '20px'}}> Your points: {points} </p>
-          <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
-        </div>
-      }
-      </div> : <img className='pokeballImage' src={pokeball} />
-      }
-      <img className='logoImage' src={WhoIsThatPokemonImage} />
-    </div>
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white flex flex-col items-center justify-center text-center px-4 py-10 relative">
+        {whoIsThatPokemonPokemons.length > 0 ? (
+            <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-6 sm:p-10 w-full max-w-xl animate-fade-in relative z-10">
+                <div className="flex justify-center mb-4">
+                    <img src={WhoIsThatPokemonImage} alt="Who is that Pokémon?" className="w-40 h-auto" />
+                </div>
+                <h1 className="text-3xl font-bold text-blue-700 mb-2">Who's That Pokémon?</h1>
+                <p className="text-gray-600 mb-6">Guess the name of the hidden Pokémon based on its image and clues. Select a difficulty to begin!</p>
+                    {status !== null && (
+                        <img
+                            className="mx-auto w-36 h-36 object-contain"
+                            src={pokemon?.image}
+                            alt="Hidden Pokémon"
+                        />
+                    )}
+                    {status === null && (
+                        <div>
+                            <h2 className="text-2xl font-bold text-red-600 mb-4">DIFFICULTY</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <button
+                                    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition"
+                                    onClick={onClickSetEasy}
+                                >
+                                    EASY
+                                </button>
+                                <button
+                                    className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md transition"
+                                    onClick={onClickSetMedium}
+                                >
+                                    MEDIUM
+                                </button>
+                                <button
+                                    className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md transition"
+                                    onClick={onClickSetHard}
+                                >
+                                    HARD
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                    {status === 'ingame' && (
+                        <div className="mt-6">
+                            <p className="text-red-600 font-semibold text-lg mb-4">
+                                {difficulty === 'easy'
+                                    ? `It has ${pokemon?.name?.length} letters and starts with ${pokemon?.name[0]}${pokemon?.name[1]}`
+                                    : difficulty === 'medium'
+                                    ? `It has ${pokemon?.name?.length} letters`
+                                    : ''
+                                }
+                            </p>
+                            <input
+                                type="text"
+                                onChange={handleInput}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4"
+                            />
+                            <button
+                                onClick={onClickSubmit}
+                                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition"
+                            >
+                                SUBMIT
+                            </button>
+                        </div>
+                    )}
+                    {status === 'correct' && (
+                        <div className="mt-6">
+                            <p className="text-green-600 text-xl font-bold mb-4">{pokemon.name}</p>
+                            <button
+                                className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md transition"
+                                onClick={onClickContinue}
+                            >
+                                CONTINUE
+                            </button>
+                        </div>
+                    )}
+                    {status === 'incorrect' && (
+                        <div className="mt-6">
+                            <p className="text-red-600 text-xl font-bold mb-2">{pokemon.name}</p>
+                            <p className="text-gray-700 mb-4">Your points: {points}</p>
+                            <button
+                                className="bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-md transition"
+                                onClick={onClickTryAgain}
+                            >
+                                TRY AGAIN
+                            </button>
+                        </div>
+                    )}
+                </div>
+            ) : (
+                <img src={pokeball} alt="Loading" className="w-24 h-24 animate-spin" />
+        )}
     </div>
   )
 }
