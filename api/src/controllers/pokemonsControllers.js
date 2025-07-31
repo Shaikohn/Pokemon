@@ -44,6 +44,7 @@ const getPokemons = async(req, res) => {
             pokemons[i] = {
                 name: pokemons[i].name,
                 image: pokemons[i].image,
+                id: pokemons[i].id,
             }
         }
         res.status(200).json(pokemons)
