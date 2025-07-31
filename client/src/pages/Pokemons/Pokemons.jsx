@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemons } from '../../redux/actions/pokemonActions';
-import './Pokemons.css'
 import pokeball from '../../assets/Pokeball.png'
 import { Link } from 'react-router-dom'
 import Swal from "sweetalert2";
