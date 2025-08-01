@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getHigherOrLower } from '../../redux/actions/gameActions';
 import pokeball from '../../assets/Pokeball.png'
-import './HigherOrLower.css'
-import MobileHigherOrLower from './MobileHigherOrLower'
 
 const HigherOrLower = () => {
 
@@ -63,44 +61,80 @@ const HigherOrLower = () => {
   }
 
   return (
-    <div>
-      <div className='mobile-only'>
-        <MobileHigherOrLower />
-      </div>
-    <div className='higherOrLowerContainer pc-only'>
-      <h1><span style={{color: 'green'}}>Higher</span> Or <span style={{color: 'red'}}>Lower</span>: Pokedex Number</h1>
-      {/* <h2>Pokedex Number</h2> */}
-      {
-        one !== '' ?
-        <div className='optionsContainer'>
-        <div className='optionContainer'>
-          <h1> {one.name} </h1>
-          <img className='optionImage' src={one.image} />
-          <p> {one.id} </p>
-        </div>
-        <div className='optionContainer'>
-          <h1> {two.name} </h1>
-          <img className='optionImage' src={two.image} />
-          { hidden ?
-            <p> ? </p> : <p className={status === 'correct' ? 'correctAnswer' : 'incorrectAnswer'}> {two.id} </p>
-          }
-          {
-          status === null ?
-          <div>
-            <button className='higherButton' onClick={onClickHigher}>HIGHER</button>
-            <button className='lowerButton' onClick={onClickLower}>LOWER</button>
-          </div> : status === 'correct' ?
-          <button className='continueButton' onClick={onClickContinue}>CONTINUE</button> :
-          <div>
-            <button className='tryAgainButton' onClick={onClickTryAgain}>TRY AGAIN</button>
-            <p style={{marginTop: '10px'}}>Your points: {points} </p>
-          </div>
-        }
-        </div>
-      </div>
-        : <img className='pokeballImage' src={pokeball} />
-      }
-    </div>
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white flex flex-col items-center justify-center px-4 py-10">
+        {one !== '' ? (
+            <div className="p-8 sm:p-12 w-full max-w-5xl animate-fade-in text-center space-y-10">
+                <div>
+                    <h1 className="text-4xl sm:text-5xl font-extrabold mb-2">
+                        <span className="text-green-600">Higher</span> or <span className="text-red-500">Lower</span>
+                    </h1>
+                    <p className="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto">
+                        Decide if the second Pokemon has a higher or lower Pokedex number than the first one.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-center justify-center">
+                    <div className="bg-white border border-slate-300 rounded-xl shadow-md p-6 sm:p-8 transition hover:scale-[1.02]">
+                        <h2 className="text-2xl font-extrabold mb-2 bg-gradient-to-r from-yellow-600 to-yellow-300 text-transparent bg-clip-text tracking-wide uppercase">
+                            {one.name}
+                        </h2>
+                        <img src={one.image} alt={one.name} className="w-36 h-36 mx-auto mb-4" />
+                        <p className="text-gray-700 font-mono text-lg">#{one.id}</p>
+                    </div>
+                    <div className="bg-white border border-slate-300 rounded-xl shadow-md p-6 sm:p-8 transition hover:scale-[1.02] flex flex-col items-center">
+                        <h2 className="text-2xl font-extrabold mb-2 bg-gradient-to-r from-yellow-600 to-yellow-300 text-transparent bg-clip-text tracking-wide uppercase">
+                            {two.name}
+                        </h2>
+                        <img src={two.image} alt={two.name} className="w-36 h-36 mx-auto mb-4" />
+                        <p className={`text-lg font-mono ${
+                            status === 'correct' ? 'text-green-600' :
+                            status === 'incorrect' ? 'text-red-500' :
+                            'text-gray-700'
+                            }`}>
+                            {hidden ? '?' : `#${two.id}`}
+                        </p>
+                        <div className="mt-4 w-full flex flex-col items-center gap-3">
+                            {status === null && (
+                                <div className="flex flex-col sm:flex-row gap-3 w-full">
+                                    <button
+                                        className="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg transition"
+                                        onClick={onClickHigher}
+                                    >
+                                        HIGHER
+                                    </button>
+                                    <button
+                                        className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg transition"
+                                        onClick={onClickLower}
+                                    >
+                                        LOWER
+                                    </button>
+                                </div>
+                            )}
+                            {status === 'correct' && (
+                                <button
+                                    className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
+                                    onClick={onClickContinue}
+                                >
+                                    CONTINUE
+                                </button>
+                            )}
+                            {status === 'incorrect' && (
+                                <div className="flex flex-col items-center w-full">
+                                    <button
+                                        className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg transition"
+                                        onClick={onClickTryAgain}
+                                    >
+                                        TRY AGAIN
+                                    </button>
+                                    <p className="text-gray-700 mt-3">Your points: {points}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ) : (
+            <img src={pokeball} alt="Loading" className="w-20 h-20 animate-spin" />
+        )}
     </div>
   )
 }

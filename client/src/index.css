@@ -8,3 +8,7 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+button {
+  cursor: pointer;
+}

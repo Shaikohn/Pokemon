@@ -14,8 +14,8 @@ const Pokemons = () => {
     let filteredPokemons = allPokemons.filter(p => p.name.toLowerCase().includes(search.toLowerCase()))
 
     useEffect(() => {
-	      dispatch(getPokemons())
-	  }, [dispatch])
+	    dispatch(getPokemons())
+	}, [dispatch])
 
     const handleScroll = () => {
         if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
@@ -53,10 +53,10 @@ const Pokemons = () => {
         <div className="min-h-screen bg-gray-50 text-gray-800 px-4 py-6">
             <div className="max-w-7xl mx-auto text-center">
                 <h1 className="text-4xl font-extrabold text-red-600 mb-2 tracking-wide">
-                    POKÉMONS
+                    POKEMONS
                 </h1>
                 <p className="text-lg text-gray-600 mb-6">
-                    Browse the Pokédex to see each Pokémon's number and name.
+                    Browse the Pokédex to see each Pokemon's number and name.
                 </p>
                 <input
                     type="text"

@@ -43,14 +43,14 @@ export default function Home() {
                     >
                         <h2 className="text-4xl font-bold text-red-600 mb-2">POKEMONS</h2>
                         <p className="text-lg text-gray-700">
-                            Browse and search through all available Pokémon!
+                            Browse and search through all available Pokemon!
                         </p>
                     </Link>
                     <Link
                         to="/whoIsThatPokemon"
                         className="w-full max-w-xl bg-white hover:bg-yellow-50 transition border-2 border-yellow-300 rounded-3xl p-8 shadow-xl"
                     >
-                        <h2 className="text-4xl font-bold text-yellow-500 mb-2">WHO IS THAT POKÉMON?</h2>
+                        <h2 className="text-4xl font-bold text-yellow-500 mb-2">WHO IS THAT POKEMON?</h2>
                         <p className="text-lg text-gray-700">
                             Play the iconic silhouette guessing game from the anime!
                         </p>
@@ -61,7 +61,7 @@ export default function Home() {
                     >
                         <h2 className="text-4xl font-bold text-blue-500 mb-2">HIGHER OR LOWER?</h2>
                         <p className="text-lg text-gray-700">
-                            A Pokémon-themed twist on the classic Higher or Lower game!
+                            A Pokemon-themed twist on the classic Higher or Lower game!
                         </p>
                     </Link>
                 </div>

@@ -27,8 +27,8 @@ export default function Navbar() {
                     </div>
                     <div className="hidden md:flex gap-10 text-lg">
                         <Link to="/" className="hover:text-yellow-300 transition">Home</Link>
-                        <Link to="/pokemons" className="hover:text-yellow-300 transition">Pokémons</Link>
-                        <Link to="/whoIsThatPokemon" className="hover:text-yellow-300 transition">Who's That Pokémon?</Link>
+                        <Link to="/pokemons" className="hover:text-yellow-300 transition">Pokemons</Link>
+                        <Link to="/whoIsThatPokemon" className="hover:text-yellow-300 transition">Who's That Pokemon?</Link>
                         <Link to="/higherOrLower" className="hover:text-yellow-300 transition">Higher or Lower?</Link>
                     </div>
                 </div>
@@ -36,8 +36,8 @@ export default function Navbar() {
             {menuOpen && (
                 <div className="md:hidden bg-red-600 text-white px-4 pb-4 space-y-2">
                     <Link to="/" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Home</Link>
-                    <Link to="/pokemons" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Pokémons</Link>
-                    <Link to="/whoIsThatPokemon" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Who's That Pokémon?</Link>
+                    <Link to="/pokemons" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Pokemons</Link>
+                    <Link to="/whoIsThatPokemon" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Who's That Pokemon?</Link>
                     <Link to="/higherOrLower" onClick={() => setMenuOpen(false)} className="block hover:text-yellow-300">Higher or Lower?</Link>
                 </div>
             )}
