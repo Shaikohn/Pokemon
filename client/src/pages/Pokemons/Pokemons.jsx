@@ -58,42 +58,42 @@ const Pokemons = () => {
                 <p className="text-lg text-gray-600 mb-6">
                     Browse the Pokédex to see each Pokemon's number and name.
                 </p>
-                <input
-                    type="text"
-                    value={search}
-                    onChange={handleOnSearch}
-                    placeholder="Search Pokémon"
-                    className="w-full sm:w-96 px-4 py-2 border border-gray-300 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-red-500 mb-8"
-                />
+                {allPokemons.length > 0 && (
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={handleOnSearch}
+                        placeholder="Search Pokémon"
+                        className="w-full sm:w-96 px-4 py-2 border border-gray-300 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-red-500 mb-8"
+                    />
+                )}
             </div>
             <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-                {
-                    allPokemons.length > 0 ? (
-                        filterPokemons()
-                            .slice(0, perPage)
-                            .map((p, i) => (
-                                <Link to={`pokemon/${p.name}`} key={i}>
-                                    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:-translate-y-1 flex flex-col items-center text-center">
-                                        <img
-                                            src={p.image}
-                                            alt={p.name}
-                                            className="w-20 h-20 object-contain mb-3 transition-transform duration-200 hover:scale-105"
-                                        />
-                                        <p className="text-sm font-medium text-gray-500 mb-1">
-                                            #{p.id.toString().padStart(3, '0')}
-                                        </p>
-                                        <p className="text-base font-semibold capitalize text-gray-700 tracking-wide">
-                                            {p.name}
-                                        </p>
-                                    </div>
-                                </Link>
-                            ))
-                        ) : (
-                            <div className="col-span-full flex justify-center">
-                                <img src={pokeball} alt="Loading" className="w-24 h-24 animate-spin" />
+                {allPokemons.length > 0 ? (
+                    filterPokemons()
+                    .slice(0, perPage)
+                    .map((p, i) => (
+                        <Link to={`pokemon/${p.name}`} key={i}>
+                            <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-transform transform hover:-translate-y-1 flex flex-col items-center text-center">
+                                <img
+                                    src={p.image}
+                                    alt={p.name}
+                                    className="w-20 h-20 object-contain mb-3 transition-transform duration-200 hover:scale-105"
+                                />
+                                <p className="text-sm font-medium text-gray-500 mb-1">
+                                    #{p.id.toString().padStart(3, '0')}
+                                </p>
+                                <p className="text-base font-semibold capitalize text-gray-700 tracking-wide">
+                                    {p.name}
+                                </p>
                             </div>
-                        )
-                }
+                        </Link>
+                    ))
+                    ) : (
+                        <div className="col-span-full flex justify-center">
+                            <img src={pokeball} alt="Loading" className="w-24 h-24 animate-spin" />
+                        </div>
+                )}
             </div>
         </div>
     )

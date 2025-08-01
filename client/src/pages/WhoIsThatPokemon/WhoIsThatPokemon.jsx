@@ -68,12 +68,14 @@ const WhoIsThatPokemon = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white flex flex-col items-center justify-center text-center px-4 py-10 relative">
             {whoIsThatPokemonPokemons.length > 0 ? (
-                <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-6 sm:p-10 w-full max-w-xl animate-fade-in relative z-10">
+                <div className="p-6 sm:p-10 w-full max-w-xl animate-fade-in relative z-10">
                     <div className="flex justify-center mb-4">
-                        <img src={WhoIsThatPokemonImage} alt="Who is that Pokémon?" className="w-40 h-auto" />
+                        <img src={WhoIsThatPokemonImage} alt="Who is that Pokémon?" className="w-80" />
                     </div>
-                    <h1 className="text-3xl font-bold text-blue-700 mb-2">Who's That Pokémon?</h1>
-                    <p className="text-gray-600 mb-6">Guess the name of the hidden Pokémon based on its image and clues. Select a difficulty to begin!</p>
+                    <h1 className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-slate-700 to-blue-500 text-transparent bg-clip-text tracking-wide uppercase">
+                        Who's That Pokémon?
+                    </h1>
+                    <p className="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto mb-5">Guess the name of the hidden Pokémon based on its image and clues. Select a difficulty to begin!</p>
                         {status !== null && (
                             <img
                                 className="mx-auto w-36 h-36 object-contain"
